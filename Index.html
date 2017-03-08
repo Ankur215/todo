@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="todoapp">
+<head>
+	<title>14-TodoList</title>
+	<style type="text/css">
+		#list{
+			border-bottom: 2px dotted grey;
+			width: 350px;
+		}
+		.done-true {
+			  text-decoration: line-through;
+			  color: #ddd;
+		}
+		.done-false {
+			  text-decoration: underline;
+			  color: #785664;
+		}
+		b{
+			color:red;
+		}
+	</style>
+</head>
+<body >
+	<div ng-controller='todoctrl'>
+		<span>	<b>{{count()}}</b> of {{todolist.length}} Completed</span>
+			<br>
+			<input type="text" placeholder="I need to..." ng-model="lst"  size="50">
+			<button ng-click="add()">+</button><br>
+			<input type="checkbox" ng-model="allcheck" ng-click="markall()">
+			 Mark All as completed
+			
+			<div id="list"  ng-repeat="item in todolist"><br>
+					<input type="checkbox" name="checkbox"  ng-model="item.done"> &nbsp
+					<span class="done-{{item.done}}">{{item.todo}}</span>
+			</div><br> <br>
+			<button ng-click="remove()">Remove checked items</button>
+	</div>
+
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
